@@ -1,25 +1,31 @@
-/**
- * @typedef {import('./models/Person.js').PersonType} PersonType
- */
-import Person from './models/Person.js';
+const Person = require('./models/Person.js');
 
 let person = new Person({
     name: "John Doe",
     age: 25,
     city: "Sâo Paulo",
     uf: "SP",
-    country: "Brazil"
+    country: "Brazil",
+    ability: {
+        name: 'Invisibility',
+        description: 'Become invisible like Harry Potter\n\t\twith the invisibility cloak'
+    }
 })
 
-
-printPerson(person);
+printPersonAndAbility(person);
 
 /**
- * Print the params
- * @param {PersonType} person - person data 
+ * Print person's properties
+ * @param {Person} person - person data 
  * @returns {void}
  */
-function printPerson(person){
-    console.log(`The person name is: 
-        ${person.name}`)
+function printPersonAndAbility(person){
+
+    console.log(`
+        *************************OUTPUT****************************
+        \n\t\tHi there😁
+        \tMy name is ${person.name} and`)
+
+    person.ability.showAbility()
+    console.log('\n\t*************************OUTPUT****************************\t\n')
 }
